@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\xdelta3.net.redist.windows.x64.1.0.1\build\net45\xdelta3.net.redist.windows.x64.props" Condition="Exists('..\packages\xdelta3.net.redist.windows.x64.1.0.1\build\net45\xdelta3.net.redist.windows.x64.props')" />
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{65665CA7-252C-493F-83C1-92EEB9443354}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AxGrid</RootNamespace>
+    <AssemblyName>AxGridUnityTools</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxGrid.Compare">
+      <HintPath>..\contrib\AxGrid.Compare.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.3.11, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.3.3\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\contrib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="log4uni">
+      <HintPath>..\contrib\log4uni.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SmartFormat, Version=2.1.0.2, Culture=neutral, PublicKeyToken=568866805651201f">
+      <HintPath>..\contrib\SmartFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard1.1\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\contrib\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="xdelta3.net, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\xdelta3.net.1.0.1\lib\net45\xdelta3.net.dll</HintPath>
+    </Reference>
+    <Reference Include="YamlDotNet, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\contrib\YamlDotNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Binder.cs" />
+    <Compile Include="Base\MonoBehaviourExt.cs" />
+    <Compile Include="Base\MonoBehaviourExt2D.cs" />
+    <Compile Include="Base\MonoBehaviourExt2DBind.cs" />
+    <Compile Include="Base\MonoBehaviourExtBind.cs" />
+    <Content Include="Doc\Path.md" />
+    <Compile Include="Flow\Flow.cs" />
+    <Compile Include="Flow\FlowBuilder.cs" />
+    <Compile Include="Flow\FlowContext.cs" />
+    <Compile Include="Flow\FlowOnBuilder.cs" />
+    <Compile Include="Flow\FlowTerminateException.cs" />
+    <Compile Include="Flow\IFlowContext.cs" />
+    <Compile Include="FSM\FSM.cs" />
+    <Compile Include="FSM\FSMState.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Model\AsyncEventManager.cs" />
+    <Compile Include="Model\AsyncExecutor.cs" />
+    <Compile Include="Model\DynamicModel.cs" />
+    <Compile Include="Model\IEventManagerInvoke.cs" />
+    <Compile Include="Model\Options.cs" />
+    <Compile Include="Model\SimpleModel.cs" />
+    <Compile Include="Model\Generic\DynamicList.cs" />
+    <Compile Include="Model\Generic\IDynamicDictionary.cs" />
+    <Compile Include="Model\Generic\IDynamicObject.cs" />
+    <Compile Include="Path\CPath.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SmartFormat\PointFormater.cs" />
+    <Compile Include="SmartFormat\TemplateFormater.cs" />
+    <Compile Include="Text\Codes.cs" />
+    <Compile Include="Text\ITextRepository.cs" />
+    <Compile Include="Text\Text.cs" />
+    <Compile Include="Text\TextRepository.cs" />
+    <Compile Include="Tools\Array\CircleArray.cs" />
+    <Compile Include="Tools\Array\GridArray.cs" />
+    <Compile Include="Tools\Array\LinearArray.cs" />
+    <Compile Include="Tools\AxRotate2D.cs" />
+    <Compile Include="Tools\AxRotator.cs" />
+    <Compile Include="Tools\AxSprite.cs" />
+    <Compile Include="Tools\AxSpriteCollection.cs" />
+    <Compile Include="Tools\AxSpriteObject.cs" />
+    <Compile Include="Tools\AxSpriteObjectCollection.cs" />
+    <Compile Include="Tools\AxSpriteObjectCollectionSimple.cs" />
+    <Compile Include="Tools\OKeySprite.cs" />
+    <Compile Include="Utils\BinaryPatchUtility.cs" />
+    <Compile Include="Utils\ColorUtils.cs" />
+    <Compile Include="Utils\ConvertUtils.cs" />
+    <Compile Include="Utils\DictionaryHelper.cs" />
+    <Compile Include="Utils\Easing.cs" />
+    <Compile Include="Utils\EasingTo.cs" />
+    <Compile Include="Utils\HSLColor.cs" />
+    <Compile Include="Utils\NullableDict.cs" />
+    <Compile Include="Utils\NullableDictionary.cs" />
+    <Compile Include="Utils\NullObject.cs" />
+    <Compile Include="Utils\Numbers.cs" />
+    <Compile Include="Utils\Polar.cs" />
+    <Compile Include="Utils\Reflections\IPropertyOrField.cs" />
+    <Compile Include="Utils\Reflections\PropertyOrFieldArray.cs" />
+    <Compile Include="Utils\Reflections\PropertyOrField.cs" />
+    <Compile Include="Utils\Reflections\PropertyOrFieldCollection.cs" />
+    <Compile Include="Utils\Reflections\ReflectionUtils.cs" />
+    <Compile Include="Utils\StaticUtils.cs" />
+    <Compile Include="Utils\TextUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Doc\FSM.md" />
+    <Content Include="Doc\main-cycle.png" />
+    <Content Include="Doc\Model.md" />
+    <Content Include="Doc\README.md" />
+    <Content Include="Doc\Use.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\xdelta3.net.redist.windows.x64.1.0.1\build\net45\xdelta3.net.redist.windows.x64.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xdelta3.net.redist.windows.x64.1.0.1\build\net45\xdelta3.net.redist.windows.x64.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+</Project>
